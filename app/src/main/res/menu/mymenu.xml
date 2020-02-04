@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/firstFrag"
+        android:icon="@drawable/ic_action_home"
+        android:title="Home" />
+    <item
+        android:id="@+id/secondFrag"
+        android:icon="@drawable/ic_action_favourite"
+        android:title="Second" />
+    <item
+        android:id="@+id/thirdFrag"
+        android:icon="@drawable/ic_action_mobile"
+        android:title="Favorite" />
+</menu>
