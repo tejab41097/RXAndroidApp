@@ -1,4 +1,4 @@
-package com.example.rxandroidapp.ui.secondFrag
+package com.example.rxandroidapp.ui.secondFragment
 
 import androidx.lifecycle.ViewModel
 

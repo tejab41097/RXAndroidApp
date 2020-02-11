@@ -3,9 +3,9 @@ package com.example.rxandroidapp
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
-import com.example.rxandroidapp.ui.firstFrag.FirstFragment
-import com.example.rxandroidapp.ui.secondFrag.SecondFragment
-import com.example.rxandroidapp.ui.thirdFrag.ThirdFragment
+import com.example.rxandroidapp.ui.firstFragment.FirstFragment
+import com.example.rxandroidapp.ui.secondFragment.SecondFragment
+import com.example.rxandroidapp.ui.thirdFragment.ThirdFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -14,38 +14,38 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val firstFragment = FirstFragment()
+        val sFirstFragment = FirstFragment()
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.frame_holder, firstFragment)
+            .replace(R.id.frame_holder, sFirstFragment)
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
             .commit()
 
-        val bottomNav: BottomNavigationView = findViewById(R.id.nav)
-        bottomNav.setOnNavigationItemSelectedListener { item ->
+        val sBottomNav: BottomNavigationView = findViewById(R.id.nav)
+        sBottomNav.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
 
                 R.id.firstFrag -> {
-                    val firstFragment = FirstFragment()
+                    val sFirstFragment = FirstFragment()
                     supportFragmentManager
                         .beginTransaction()
-                        .replace(R.id.frame_holder, firstFragment)
+                        .replace(R.id.frame_holder, sFirstFragment)
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                         .commit()
                 }
                 R.id.secondFrag -> {
-                    val secondFragment = SecondFragment()
+                    val sSecondFragment = SecondFragment()
                     supportFragmentManager
                         .beginTransaction()
-                        .replace(R.id.frame_holder, secondFragment)
+                        .replace(R.id.frame_holder, sSecondFragment)
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                         .commit()
                 }
                 R.id.thirdFrag -> {
-                    val thirdFragment = ThirdFragment()
+                    val sThirdFragment = ThirdFragment()
                     supportFragmentManager
                         .beginTransaction()
-                        .replace(R.id.frame_holder, thirdFragment)
+                        .replace(R.id.frame_holder, sThirdFragment)
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                         .commit()
                 }

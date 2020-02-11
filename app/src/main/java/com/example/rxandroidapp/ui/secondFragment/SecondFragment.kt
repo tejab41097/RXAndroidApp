@@ -1,4 +1,4 @@
-package com.example.rxandroidapp.ui.thirdFrag
+package com.example.rxandroidapp.ui.secondFragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,24 +8,24 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.rxandroidapp.R
 
-class ThirdFragment : Fragment() {
+class SecondFragment : Fragment() {
 
     companion object {
-        fun newInstance() = ThirdFragment()
+        fun newInstance() = SecondFragment()
     }
 
-    private lateinit var viewModel: ThirdViewModel
+    private lateinit var viewModel: SecondViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.third_fragment, container, false)
+        return inflater.inflate(R.layout.second_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(ThirdViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(SecondViewModel::class.java)
         // TODO: Use the ViewModel
     }
 
