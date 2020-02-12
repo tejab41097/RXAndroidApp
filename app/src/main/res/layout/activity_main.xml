@@ -7,6 +7,23 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:logo="@drawable/ic_apps_black_24dp"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+        android:title="ToolbarDemo"
+        android:titleMarginStart="40dp" />
+
+    <FrameLayout
+        android:id="@+id/frame_holder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/nav"
+        android:layout_below="@id/toolbar" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav"
         android:layout_height="wrap_content"
@@ -14,10 +31,4 @@
         android:layout_alignParentBottom="true"
         android:background="#fff"
         app:menu="@menu/mymenu" />
-
-    <FrameLayout
-        android:id="@+id/frame_holder"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/nav" />
 </RelativeLayout>

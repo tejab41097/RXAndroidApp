@@ -2,12 +2,15 @@ package com.example.rxandroidapp.ui.firstFragment
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.rxandroidapp.repository.FirstRepository
 
-class FirstViewModelFactory : ViewModelProvider.NewInstanceFactory() {
+@Suppress("UNCHECKED_CAST")
+class FirstViewModelFactory(
+    private val firstRepository: FirstRepository
+) : ViewModelProvider.NewInstanceFactory() {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-//        return {
-//            firstRepository
-//        }as T
-        return {} as T
+        return FirstViewModel(
+            firstRepository
+        ) as T
     }
 }

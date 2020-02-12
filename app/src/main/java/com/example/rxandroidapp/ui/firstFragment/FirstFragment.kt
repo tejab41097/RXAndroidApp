@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rxandroidapp.R
 import com.example.rxandroidapp.network.MyAPI
+import com.example.rxandroidapp.repository.FirstRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -29,16 +30,17 @@ class FirstFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         val apiService = MyAPI.RetrofitObject()
-        //val firstRepository = FirstRepository(apiService)
-        //val factory = FirstViewModelFactory(firstRepository)
+        val firstRepository = FirstRepository(apiService)
+        val factory = FirstViewModelFactory(firstRepository)
         compositeDisposable = CompositeDisposable()
-        viewModel = ViewModelProviders.of(this).get(FirstViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, factory).get(FirstViewModel::class.java)
 
         view_recycler_first.setHasFixedSize(true)
         view_recycler_first.layoutManager = LinearLayoutManager(context)
-        //viewModel.getPosts()
 
-        compositeDisposable.add(apiService.getPosts
+
+        compositeDisposable.add(
+            viewModel.getPosts()
             .subscribeOn(Schedulers.io())!!
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { posts ->
