@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.first_fragment.*
 class FirstFragment : Fragment() {
 
     private lateinit var viewModel: FirstViewModel
-    internal lateinit var compositeDisposable: CompositeDisposable
+    private lateinit var compositeDisposable: CompositeDisposable
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

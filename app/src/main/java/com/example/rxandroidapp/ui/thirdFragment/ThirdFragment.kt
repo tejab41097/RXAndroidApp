@@ -7,13 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.rxandroidapp.R
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import kotlinx.android.synthetic.main.third_fragment.*
+
 
 class ThirdFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = ThirdFragment()
-    }
-
     private lateinit var viewModel: ThirdViewModel
 
     override fun onCreateView(
@@ -26,7 +24,13 @@ class ThirdFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(ThirdViewModel::class.java)
-        // TODO: Use the ViewModel
+        val acct = GoogleSignIn.getLastSignedInAccount(activity)
+        if (acct != null) {
+            name.text = acct.displayName
+            email.text = acct.email
+            userId.text = acct.id
+            url.text = acct.photoUrl.toString()
+        }
     }
 
 }
